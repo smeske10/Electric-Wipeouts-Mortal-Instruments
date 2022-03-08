@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS _db;
-CREATE DATABASE _db;
+DROP DATABASE IF EXISTS mortalinstruments_db;
+CREATE DATABASE mortalinstruments_db;
