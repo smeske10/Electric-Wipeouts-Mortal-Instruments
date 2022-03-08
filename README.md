@@ -18,6 +18,7 @@
 
 ## License
 
+[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 - Unlicensed
 
 Refer to [https://choosealicense.com/](https://choosealicense.com/).
