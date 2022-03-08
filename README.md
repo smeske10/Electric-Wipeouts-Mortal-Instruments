@@ -1,6 +1,8 @@
-# Project 2: Electric Wipeout
+# Project 2: Electric Wipeout's Mortal Instruments
 
 ## Description
+- 
+- https://docs.google.com/document/d/1Uy9UNC5UKwm13iu4X9kpRuR0n14ZSBCoSG0V9dTo7jY/edit
 - 
 
 ## Table of Contents
