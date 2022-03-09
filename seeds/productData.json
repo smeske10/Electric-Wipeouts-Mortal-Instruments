@@ -1,20 +1,10 @@
 [
-    {
-      "name": "guitarTest",
-      "price":100,
-      "stock": 5,
-      "category_id":1
-    },
-    {
-        "name": "pianoTest",
-        "price":200,
-        "stock": 5,
-        "category_id":2
-    },
-    {
-        "name": "drumbTest",
-        "price":300,
-        "stock": 5,
-        "category_id":3
-    }
-  ]
+  {
+    "name": "Fender Player Stratocaster HSS Plus Top Maple Fingerboard Limited-Edition Electric Guitar Green Burst",
+    "price": "699.99",
+    "stock": "5",
+    "description": "Body shape: Double cutaway, Body material: Solid wood, Body finish: Gloss, Orientation: Right handed, Neck shape: C modern, Radius: 9.5in, Number of frets: 2, Color: Chrome, Number of strings: 6-string",
+    "image": "../public/images/Fender Player Stratocaster Electric Guitar Green Burst.jpg",
+    "category_id": "1"
+  }
+]
