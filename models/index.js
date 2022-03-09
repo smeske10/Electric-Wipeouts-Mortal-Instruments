@@ -7,7 +7,7 @@ User.hasMany(Product, {
   onDelete: 'CASCADE'
 });
 
-Product.hasOne(User,{
+Product.belongsToMany(User,{
   foreignKey:'user_id'
 })
 
