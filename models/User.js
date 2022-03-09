@@ -35,6 +35,14 @@ User.init(
         len: [8],
       },
     },
+    product_id:{
+      type: DataTypes.ARRAY,
+      allowNull:true,
+      references: {
+        model: 'product',
+        key: 'id',
+      },
+    }
   },
   {
     hooks: {
