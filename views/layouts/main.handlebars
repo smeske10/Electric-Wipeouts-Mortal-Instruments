@@ -26,13 +26,12 @@
     {{/if}}
   </header>
   <main class="container container-fluid mt-5">
-    {{{ body }}}
+    <div class ="category">
+     {{{ body }}} 
+    </div>
   </main>
-  <footer>
-      
-  </footer>
-
-  <!-- TODO: Add a comment describing the functionality of this helper -->
+  
+  <!--if user logged in have option to logout-->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
