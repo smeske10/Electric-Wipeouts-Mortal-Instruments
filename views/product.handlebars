@@ -1,8 +1,9 @@
-<div class="text-center">
-  <h2>{{name}}</h2>
-  <p>img here</p>
-  <p>{{description}}</p>
-  <p>Price: {{price}}
-    <button class="btn btn-primary">Add to cart</button>
-  </p>
-</div>
+
+<section class="product">
+  <img src="/images/{{product.filename}}" alt="{{product.description}}">
+  <div class="product-details">
+    <h3>{{product.name}}</h3>
+    <p>Price:{{product.price}}</p>
+    <button class="btn btn-primary"> Add to cart</button>
+  </div>
+</section>
