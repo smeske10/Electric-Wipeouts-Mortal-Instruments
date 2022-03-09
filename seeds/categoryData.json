@@ -1,13 +1,30 @@
 [
     {
-      "name": "Guitars"
-      
+        "name": "Guitars"
+
     },
     {
-      "name": "Pianos"
-      
+        "name": "DJ Gear"
+
     },
     {
-      "name": "Drumbs"
+        "name": "Keyboards"
+
+    },
+    {
+        "name": "Amps"
+
+    },
+    {
+        "name": "Lighting/Effects"
+
+    },
+    {
+        "name": "Basses"
+
+    },
+    {
+        "name": "Recording"
+
     }
 ]
