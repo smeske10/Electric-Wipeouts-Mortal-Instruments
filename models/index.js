@@ -8,6 +8,7 @@ User.hasMany(Product, {
 });
 
 Product.belongsToMany(User,{
+  through:"User_Products",
   foreignKey:'user_id'
 })
 
