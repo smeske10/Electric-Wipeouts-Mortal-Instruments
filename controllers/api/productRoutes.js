@@ -8,7 +8,6 @@ router.get("/", async (req, res) => {
     const mappedProducts = products.map((product) =>
       product.get({ plain: true })
     );
-    console.log(mappedProducts);
     res.render("product", {
       mappedProducts,
     });
