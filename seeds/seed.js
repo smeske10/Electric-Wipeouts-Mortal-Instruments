@@ -3,7 +3,8 @@ const { User, Product, Category } = require('../models');
 
 const userData = require('./userData.json');
 const productData = require('./productData.json');
-const categoryData = require('/categoryData.json');
+const categoryData=require('./categoryData.json');
+
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -13,15 +14,9 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await Product.bulkCreate(productData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await Product.bulkCreate(productData);
 
-  await Category.bulkCreate(categoryData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await Category.bulkCreate(categoryData);
 
   process.exit(0);
 };
