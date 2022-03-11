@@ -16,12 +16,16 @@
   </header>
   <nav>
     <a href="/">Home</a>
-    <a href="/login">Login</a>
+    
   </nav>
   <main>
 {{#if logged_in}}
     <nav>
       <button class="btn" id="logout">logout</button>
+    </nav>
+    {{else}}
+    <nav>
+      <a href="/login">Login</a>
     </nav>
     {{/if}}
   </header>

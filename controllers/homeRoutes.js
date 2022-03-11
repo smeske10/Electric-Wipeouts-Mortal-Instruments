@@ -5,10 +5,15 @@ const withAuth = require('../utils/auth');
 //homepage products
 router.get('/', async (req, res) => {
     try {
-      const productData = await Product.findAll();
-      const products = productData.map((product)=>product.get({plain:true}))
+      const categoryData = await Category.findAll({
+        include:[{
+          model:Product,
+          attributes:["name"],
+        }]
+      });
+      const categories = categoryData.map((category)=>category.get({plain:true}))
       res.render('homepage',{
-        products,
+        categories,
         logged_in:req.session.logged_in
       })
     }catch(err) {
@@ -57,3 +62,15 @@ router.get('/profile', withAuth, async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+      res.redirect('/profile');
+      return;
+    }
+    res.render('login');
+  });
+  
+
+  module.exports = router;
