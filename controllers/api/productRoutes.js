@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product, User, Category } = require("../../models");
+const { Product } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -8,11 +8,10 @@ router.get("/", async (req, res) => {
     const mappedProducts = products.map((product) =>
       product.get({ plain: true })
     );
-
     console.log(mappedProducts);
-    // res.render("homepage", {
-    //   projectsArray: mappedProjects,
-    // });
+    res.render("product", {
+      mappedProducts,
+    });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -20,28 +19,25 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const projects = await Project.findByPk({
-      where: {
-        id: req.body.id,
-      },
-    });
-    const mappedProjects = projects.map((project) =>
-      project.get({ plain: true })
-    );
-    res.status(200).json(mappedProjects);
+    const products = await Product.findByPk(req.params.id);
+    const product = products.get({ plain: true });
+
+    console.log(product);
+    res.status(200).json(product);
   } catch (err) {
+    console.log("Are we here?");
     res.status(400).json(err);
   }
 });
 
 router.post("/", async (req, res) => {
   try {
-    const newProject = await Project.create({
+    const newProduct = await Product.create({
       ...req.body,
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newProject);
+    res.status(200).json(newProduct);
   } catch (err) {
     res.status(400).json(err);
   }
