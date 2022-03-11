@@ -5,6 +5,7 @@ const userData = require('./userData.json');
 const productData = require('./productData.json');
 const categoryData=require('./categoryData.json');
 
+
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
