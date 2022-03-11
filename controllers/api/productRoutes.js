@@ -1,22 +1,24 @@
-const router = require('express').Router();
-const { Project } = require('../../models');
-const withAuth = require('../../utils/auth');
+const router = require("express").Router();
+const { Product, User, Category } = require("../../models");
+const withAuth = require("../../utils/auth");
 
-router.get('/', withAuth, async (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const projects = await Project.findAll();
-    const mappedProjects = projects.map((project) =>
-      project.get({ plain: true })
+    const products = await Product.findAll();
+    const mappedProducts = products.map((product) =>
+      product.get({ plain: true })
     );
-    res.render('homepage', {
-      projectsArray: mappedProjects,
-    });
+
+    console.log(mappedProducts);
+    // res.render("homepage", {
+    //   projectsArray: mappedProjects,
+    // });
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.get('/:id', withAuth, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const projects = await Project.findByPk({
       where: {
@@ -32,7 +34,7 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-router.post('/', withAuth, async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const newProject = await Project.create({
       ...req.body,
@@ -45,7 +47,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const projectData = await Project.destroy({
       where: {
@@ -55,7 +57,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: "No project found with this id!" });
       return;
     }
 
