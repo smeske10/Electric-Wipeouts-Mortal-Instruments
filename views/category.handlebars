@@ -1,8 +1,8 @@
 <section class="container">
-  <h3 class="category-name">{{category.name}}</h3>
+  <h3 class="category-name">{{name}}</h3>
   <section class="flex-row justify-center">
     <!-- For each painting that belongs to this gallery, the painting-details partial is used to render each painting's data -->
-    {{#each category.products as |product|}}
+    {{#each products as |product|}}
     {{> product-details}}
     {{/each}}
   </section>
