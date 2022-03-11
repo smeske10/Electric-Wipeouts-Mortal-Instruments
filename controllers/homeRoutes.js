@@ -38,7 +38,7 @@ router.get('/profile', withAuth, async (req, res) => {
 //sort by category
   router.get('/category/:id', async (req, res) => {
     try {
-      const productData = await Category.findByPk(req.params.id, {
+      const categoryData = await Category.findByPk(req.params.id, {
         include: [
           {
             model: Product,
