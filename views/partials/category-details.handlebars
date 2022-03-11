@@ -1,9 +1,9 @@
 <section class="card">
-  <!-- The contents of this card links to the category page using the category ID -->
   <a href="/category/{{id}}">
-    <!-- The card contains the category name as the card header -->
     <header>{{name}}</header>
-    <!-- The card contains the first product of the category -->
-    <img src="/images/{{products.[0].filename}}" alt="{{products.[0].description}}">
+    <img
+      src="/images/{{products.0.filename}}"
+      alt="{{products.0.description}}"
+    />
   </a>
 </section>
