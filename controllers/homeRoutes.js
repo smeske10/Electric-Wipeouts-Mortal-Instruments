@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, Category,User } = require('../models');
+const { Product, Category, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 //homepage products
@@ -42,15 +42,15 @@ router.get('/profile', withAuth, async (req, res) => {
         include: [
           {
             model: Product,
-            attributes: ['name'],
+            attributes: ['id','name'],
           },
         ],
       });
   
-      const product = productData.get({ plain: true });
+      const category = categoryData.get({ plain: true });
   
-      res.render('project', {
-        ...product,
+      res.render('category', {
+        ...category,
         logged_in: req.session.logged_in
       });
     } catch (err) {
