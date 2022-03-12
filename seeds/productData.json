@@ -61,6 +61,38 @@
     "stock": "5",
     "description": "Color: Wood/Brown, Year: 2021, Number of Pieces: 6",
     "image": "../public/images/Pearl EXL725SP 2020-2021 Wood Brown.jpg",
-    "category_id": "7"
+    "category_id": "5"
+  },
+  {
+    "name": "PDP Concept5-Piece Kit",
+    "price": "899.99",
+    "stock": "5",
+    "description": "Color: Twisted Ivory, Year: 2021, Number of Pieces: 5",
+    "image": "../public/images/PDP Concept5-Piece Kit.jpg",
+    "category_id": "5"
+  },
+  {
+    "name": "Gretsch Catalina Maple Bass Drum",
+    "price": "479.99",
+    "stock": "5",
+    "description": "Color: Silver, Year: 2021, Number of Pieces: 1",
+    "image": "../public/images/PDP Concept5-Piece Kit.jpg",
+    "category_id": "5"
+  },
+  {
+    "name": "Zildjian 18in K Custom Dark Crash Cymbal",
+    "price": "334.99",
+    "stock": "5",
+    "description": "Color: Gold, Year: 2021, Number of Pieces: 1",
+    "image": "../public/images/PDP Concept5-Piece Kit.jpg",
+    "category_id": "5"
+  },
+  {
+    "name": "Alesis Nitro Mesh Kit Electronic Drum Set",
+    "price": "449.99",
+    "stock": "5",
+    "description": "Color: Black, Year: 2021, Number of Pieces: 8",
+    "image": "../public/images/Alesis Nitro Mesh Kit Electronic Drum Set.jpg",
+    "category_id": "5"
   }
 ]
