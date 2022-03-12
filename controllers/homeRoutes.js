@@ -3,83 +3,98 @@ const { Product, Category, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 //homepage products
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const categoryData = await Category.findAll({
-      include: [{
-        model: Product,
-        attributes: ["name"],
-      }]
+      include: [
+        {
+          model: Product,
+          attributes: ["name"],
+        },
+      ],
     });
-    const categories = categoryData.map((category) => category.get({ plain: true }))
-    res.render('homepage', {
+    const categories = categoryData.map((category) =>
+      category.get({ plain: true })
+    );
+    res.render("homepage", {
       categories,
-      logged_in: req.session.logged_in
-    })
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-router.get('/cart', withAuth, async (req, res) => {
+router.get("/cart", withAuth, async (req, res) => {
   try {
-      const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Product }]
-    })
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Product }],
+    });
     const cartData = await Product.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ["name"],
         },
       ],
     });
     const user = userData.get({ plain: true });
-    console.log(user)
-    
+    console.log(user);
+
     const products = cartData.map((product) => product.get({ plain: true }));
-    res.render('cart', {
+    res.render("cart", {
       products,
       ...user,
-      logged_in: true
-    })
+      logged_in: true,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
-})
-
+});
 
 //sort by category
-router.get('/category/:id', async (req, res) => {
+router.get("/category/:id", async (req, res) => {
   try {
     const categoryData = await Category.findByPk(req.params.id, {
       include: [
         {
           model: Product,
-          attributes: ['id', 'name'],
+          attributes: ["id", "name"],
         },
       ],
     });
 
     const category = categoryData.get({ plain: true });
 
-    res.render('category', {
+    res.render("category", {
       ...category,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/cart');
-    return;
+router.get("/product/:id", async (req, res) => {
+  try {
+    const products = await Product.findByPk(req.params.id);
+    const product = products.get({ plain: true });
+
+    res.render("product", {
+      product,
+    });
+  } catch (err) {
+    res.status(400).json(err);
   }
-  res.render('login');
 });
 
+router.get("/login", (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect("/cart");
+    return;
+  }
+  res.render("login");
+});
 
 module.exports = router;
