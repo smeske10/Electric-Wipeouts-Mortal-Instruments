@@ -16,6 +16,7 @@ Cart.init(
             references: {
                 model: "user",
                 key: "id",
+                unique: false
             },
         },
         product_id: {
@@ -23,6 +24,7 @@ Cart.init(
             references: {
                 model: "product",
                 key: "id",
+                unique: false
             },
         },
     },
