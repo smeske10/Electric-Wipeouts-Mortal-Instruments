@@ -4,7 +4,7 @@
     "price": "699.99",
     "stock": "5",
     "description": "Body shape: Double cutaway, Body material: Solid wood, Body finish: Gloss, Orientation: Right handed, Neck shape: C modern, Radius: 9.5in, Number of frets: 2, Color: Chrome, Number of strings: 6-string",
-    "image": "../public/images/Fender Player Stratocaster Electric Guitar Green Burst.jpg",
+    "image": "/images/Fender Player Stratocaster Electric Guitar Green Burst.jpg",
     "category_id": "1"
   },
   {
@@ -12,7 +12,7 @@
     "price": "5998.00",
     "stock": "1",
     "description": "Body shape: Dreadnought, Body material: Rosewood, Body finish: Gloss, Orientation: Right handed, Neck shape: C modern, Radius: 9.5in, Number of frets: 1, Color: Wood, Number of strings: 6-string",
-    "image": "../public/images/Martin D-28 1974 Natural.jpg",
+    "image": "/images/Martin D-28 1974 Natural.jpg",
     "category_id": "1"
   },
   {
@@ -20,7 +20,7 @@
     "price": "799.99",
     "stock": "5",
     "description": "Body shape: P-Style, Body material: Alder, Body finish: Gloss, Orientation: Right handed, Neck shape: C modern, Radius: 9.5in, Number of frets: 1, Color: Brown, Number of strings: 4-string",
-    "image": "../public/images/Fender Player Precision Bass - 3-Tone Sunburst with Pau Ferro Fingerboard.jpg",
+    "image": "/images/Fender Player Precision Bass - 3-Tone Sunburst with Pau Ferro Fingerboard.jpg",
     "category_id": "6"
   },
   {
@@ -28,7 +28,7 @@
     "price": "1399.99",
     "stock": "5",
     "description": "Category: Analog Synths, Year: 1990-2021, Color: Black, Number of keys: 44 keys",
-    "image": "../public/images/Sequential Take 5 Compact Poly Synth.jpg",
+    "image": "/images/Sequential Take 5 Compact Poly Synth.jpg",
     "category_id": "3"
   },
   {
@@ -36,7 +36,7 @@
     "price": "699.99",
     "stock": "5",
     "description": "Category: Controller, Color: Black, Number of Pads: 16",
-    "image": "../public/images/Native Instruments Maschine Mk3 Production and Performance System.jpg",
+    "image": "/images/Native Instruments Maschine Mk3 Production and Performance System.jpg",
     "category_id": "2"
   },
   {
@@ -44,7 +44,7 @@
     "price": "1099.99",
     "stock": "5",
     "description": "Category: Guitar Cabiner, Color: Black, Year: 2021",
-    "image": "../public/images/Marshall ORI50H Origin Bundle - Head and ORI412A Cabinet.jpg",
+    "image": "/images/Marshall ORI50H Origin Bundle - Head and ORI412A Cabinet.jpg",
     "category_id": "4"
   },
   {
@@ -52,7 +52,7 @@
     "price": "119.99",
     "stock": "5",
     "description": "Color: Red, Year: 2021, Gain Range: 56 dB, Maximum Output: 7 dBu",
-    "image": "../public/images/Fender Player Stratocaster Electric Guitar Green Burst.jpg",
+    "image": "/images/Fender Player Stratocaster Electric Guitar Green Burst.jpg",
     "category_id": "7"
   },
   {
@@ -60,7 +60,7 @@
     "price": "724.99",
     "stock": "5",
     "description": "Color: Wood/Brown, Year: 2021, Number of Pieces: 6",
-    "image": "../public/images/Pearl EXL725SP 2020-2021 Wood Brown.jpg",
+    "image": "/images/Pearl EXL725SP 2020-2021 Wood Brown.jpg",
     "category_id": "5"
   },
   {
@@ -68,7 +68,7 @@
     "price": "899.99",
     "stock": "5",
     "description": "Color: Twisted Ivory, Year: 2021, Number of Pieces: 5",
-    "image": "../public/images/PDP Concept5-Piece Kit.jpg",
+    "image": "/images/PDP Concept5-Piece Kit.jpg",
     "category_id": "5"
   },
   {
@@ -76,7 +76,7 @@
     "price": "479.99",
     "stock": "5",
     "description": "Color: Silver, Year: 2021, Number of Pieces: 1",
-    "image": "../public/images/PDP Concept5-Piece Kit.jpg",
+    "image": "/images/PDP Concept5-Piece Kit.jpg",
     "category_id": "5"
   },
   {
@@ -84,7 +84,7 @@
     "price": "334.99",
     "stock": "5",
     "description": "Color: Gold, Year: 2021, Number of Pieces: 1",
-    "image": "../public/images/PDP Concept5-Piece Kit.jpg",
+    "image": "/images/PDP Concept5-Piece Kit.jpg",
     "category_id": "5"
   },
   {
@@ -92,7 +92,7 @@
     "price": "449.99",
     "stock": "5",
     "description": "Color: Black, Year: 2021, Number of Pieces: 8",
-    "image": "../public/images/Alesis Nitro Mesh Kit Electronic Drum Set.jpg",
+    "image": "/images/Alesis Nitro Mesh Kit Electronic Drum Set.jpg",
     "category_id": "5"
   }
 ]
