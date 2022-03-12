@@ -12,6 +12,7 @@ export default class CartView extends View {
     this._tbody = this._container.querySelector("tbody");
     this._checkoutBtn = document.getElementById("checkoutBtn");
   }
+  0.0;
 
   install() {
     this._clickHandler = this._handleClick.bind(this);
