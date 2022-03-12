@@ -22,6 +22,7 @@ body {
 a {
   color: var(--dark);
   text-decoration: none;
+  height: 100%;
 }
 
 a:visited {
@@ -90,10 +91,11 @@ nav a:hover {
 img {
   max-width: 100%;
   height: auto;
+  align-self: center;
 }
 
 .product {
-  width: 50%;
+  width: 100%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
@@ -108,11 +110,13 @@ img {
 /* CARDS */
 .card {
   margin: 20px;
-  flex: 0 1 300px;
+  flex: 0 0 300px;
   border: 7px double var(--dark);
   border-radius: 10px;
   background-color: var(--light);
   color: var(--dark);
+  height: 350px;
+  justify-content: center;
 }
 
 .login-card {
