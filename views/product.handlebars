@@ -1,11 +1,15 @@
-<section class="product">
+<section class="product container container-fluid">
   <img src="/images/{{product.name}}.jpg" alt="{{this.description}}" />
   <div class="product-details">
     <h3>{{product.name}}</h3>
-    <p>Price:{{product.price}}</p>
+    <p>Price: ${{product.price}}</p>
+    <p>Stock: {{product.stock}}</p>
     <button id="test" data-id="{{product.id}}" class="btn btn-primary">
       Add to cart</button>
+    <br /><br />
+    <div class="">
+      <p>Product Description:</p>
+      <p>{{product.description}}</p>
+    </div>
   </div>
 </section>
-
-<script src="../js/addToCart/cartBtn.js"></script>
