@@ -4,19 +4,47 @@ const Category = require("./Category");
 const Cart = require('./Cart')
 
 
-User.belongsToMany(Product, {through:Cart});
-Product.belongsToMany(User,{through:Cart})
-User.hasMany(Cart)
-Cart.belongsTo(User);
-Product.hasMany(Cart);
-Cart.belongsTo(Product)
-
-
-Product.belongsTo(Category);
-
+Product.belongsTo(Category, {
+  foreignKey: 'category_id'
+})
 Category.hasMany(Product, {
-  foreignKey: "category_id",
+  foreignKey: 'category_id',
+  onDelete:'CASCADE'
 });
+
+Product.belongsToMany(User, {
+  through: {
+    model: Cart,
+    unique:false
+  },
+  as: 'user-cart'
+});
+
+User.belongsToMany(Product, {
+  through:{
+    model: Cart, 
+    unique:false
+  },
+  as: 'cart-products'
+});
+
+
+
+
+
+// User.belongsToMany(Product, {through:Cart});
+// Product.belongsToMany(User,{through:Cart})
+// User.hasMany(Cart)
+// Cart.belongsTo(User);
+// Product.hasMany(Cart);
+// Cart.belongsTo(Product)
+
+
+// Product.belongsTo(Category);
+
+// Category.hasMany(Product, {
+//   foreignKey: "category_id",
+// });
 
 // Product.belongsTo(User, {
 //   through: "User_Products",
