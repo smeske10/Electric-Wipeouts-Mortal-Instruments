@@ -1,51 +1,47 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MI homepage</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MI homepage</title>
+    <link rel="stylesheet" type="text/css" href="/css/jass.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+  </head>
 
-<body>
-  <header>
-    <h1>Welcome to Mortal Instruments!</h1>
-    <h3>Where music dreams come true</h3>
-  </header>
-  <nav>
-    <a href="/cart">🛒</a>
-  </nav>
-  <nav>
-    <a href="/">Home</a>
-  </nav>
-  <main>
-{{#if logged_in}}
-<a href=""></a>
+  <body>
+    <header>
+      <h1>Welcome to Mortal Instruments!</h1>
+      <h3>Where music dreams come true</h3>
+    </header>
     <nav>
-      <button style="padding:unset;" class="btn" id="logout"><a href="">logout</a></button>
+      <a href="/">Home</a>
+      <a href="/cart">Cart 🛒</a>
+      {{#if logged_in}}
+        <button style="padding:unset;" class="btn" id="logout"><a
+            href=""
+          >logout</a></button>
+      {{else}}
+        <a href="/login">Login</a>
+      {{/if}}
     </nav>
-    {{else}}
-    <nav>
-      <a href="/login">Login</a>
-    </nav>
+    <main class="container container-fluid mt-5">
+      {{{body}}}
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    {{#if logged_in}}
+      <script src="./js/login/logout.js"></script>
     {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    <div class ="category">
-     {{{ body }}} 
-    </div>
-  </main>
-  
-  <!--if user logged in have option to logout-->
-  {{#if logged_in}}
-  <script src="./js/login/logout.js"></script>
-  {{/if}}
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+    <script src="../js/addToCart/cartBtn.js"></script>
+  </body>
 
 </html>
-

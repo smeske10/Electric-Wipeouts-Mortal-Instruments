@@ -24,22 +24,6 @@
     "category_id": "6"
   },
   {
-    "name": "D'Angelico Excel Series SS Semi-Hollow Electric Guitar",
-    "price": "1799.99",
-    "stock": "5",
-    "description": "Body shape: Single cutaway, Oirentation: Right handed, Number of strings: 6 string, Brand: Kent Armstrong, Number of frets: 22, Color: Black",
-    "image": "../public/images/dangelico.png",
-    "category_id": "1"
-  },
-  {
-    "name": "Pioneer DJ PLX-1000 Professional Turntable",
-    "price": "699.99",
-    "stock": "10",
-    "description": "Power Consumption: 9W, Maximum Dimensons: 16.83'(W)x 6.25'(H)x 13.89'(D), Motor 3-phase brushless DC motor, Braking System Electronic brake.",
-    "image": "../public/images/turntable.png",
-    "category_id": "2"
-  },
-  {
     "name": "Sequential Take 5 Compact Poly Synth",
     "price": "1399.99",
     "stock": "5",
@@ -100,7 +84,7 @@
     "price": "334.99",
     "stock": "5",
     "description": "Color: Gold, Year: 2021, Number of Pieces: 1",
-    "image": "../public/images/dark cymbal.png",
+    "image": "/images/PDP Concept5-Piece Kit.jpg",
     "category_id": "5"
   },
   {
@@ -110,69 +94,5 @@
     "description": "Color: Black, Year: 2021, Number of Pieces: 8",
     "image": "/images/Alesis Nitro Mesh Kit Electronic Drum Set.jpg",
     "category_id": "5"
-  },
-  {
-    "name": "Pioneer DJ DDJ-400-N Limited Edition Gold 2-Channel DJ Controller for rekordbox dj Gold",
-    "price": "269.00",
-    "stock": "9",
-    "description": "Mic inputs: 1, USB ports: 1, Dimensions: (W)18.98x (H)2.3x (D)10.72",
-    "image": "../public/images/dj controller.png",
-    "category_id": "2"
-  },
-  {
-    "name": "Peavey KB1 20W 1x8 2-Channel Keyboard Amp",
-    "price": "199.99",
-    "stock": "20",
-    "description": "Dimensions: 13-7/8(W) 14-5/8'(H)x9'(D), 18-1/2lbs",
-    "image": "../public/images/peavey amp.png",
-    "category_id": "4"
-  },
-  {
-    "name": "Open-Box Celestion Guitar Speaker Condition 1",
-    "price": "199.99",
-    "stock": "20",
-    "description": "Handles: 75W, 12 inch, Color: mint",
-    "image": "../public/images/open-box amplifier.png",
-    "category_id": "4"
-  },
-  {
-    "name": "Rode RODEcaster Pro 2-person Podcasting Bundle",
-    "price": "1,149.99",
-    "stock": "10",
-    "description": "2x Audio-Technical AT2020 Large Diaphragm Condenser Microphone, 2x Proline MS112 Desktop Boom Mic Stand",
-    "image": "../public/images/podcaster bundler.png",
-    "category_id": "7"
-  },
-  {
-    "name": "JBL 308P MKII 8' Powered Studio Monitor",
-    "price": "225.00",
-    "stock": "10",
-    "description":"Frequency reponse: 37Hz-22kHz, size: Nearfield, Output power: 20.3 dBu, Max peak SPL: 108 dB",
-    "image": "../public/images/jbl-monitor-rec.png",
-    "category_id": "7"
-  },
-  {
-    "name": "Guild B-240E Fretless Acoustic-Electric Bass Guitar Natural",
-    "price": "529.00",
-    "stock": "9",
-    "description":"Body and Neck finish: Satin, Number of strings: 4, Body type: Acoustic Bass, Nut width: 1 5/8'",
-    "image": "../public/images/ibanz-bass.png",
-    "category_id": "6"
-  },
-  {
-    "name": "Williams Symphony Concert Digital Grand With Touchscreen and Bench Ebony 88 Key",
-    "price": "3,199.99",
-    "stock": "3",
-    "description":"Number of keys: 88, Power adapter Included, Key Type: Piano-style, Number of instrument sounds: 172",
-    "image": "../public/images/piano-full.png",
-    "category_id": "3"
-  },
-  {
-    "name": "Moog Subharmonicon Semi-Modular Polyrhythmic Analog Synthesizer",
-    "price": "699.00",
-    "stock": "3",
-    "description":"Dimensions(inches): 4.2H x 12.57W x 5.24D, Weight: 3.5lbs, Clock: 20 BPM to 3,000 BPM (Beats per Minute; 1 Pulse per Quarter-note), MIDI Clock, EXT CLOCK",
-    "image": "../public/images/keyboard-synth.png",
-    "category_id": "3"
   }
 ]

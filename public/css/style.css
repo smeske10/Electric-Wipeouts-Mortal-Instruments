@@ -52,6 +52,8 @@ aside {
 
 nav {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: var(--secondary);
 }
 
@@ -91,13 +93,13 @@ nav a:hover {
 img {
   max-width: 100%;
   height: auto;
+  max-height: 300px;
   align-self: center;
 }
 
 .product {
   width: 100%;
   background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
 }
 
@@ -117,6 +119,7 @@ img {
   color: var(--dark);
   height: 350px;
   justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .login-card {
@@ -163,6 +166,6 @@ img {
 .container {
   display: flex;
   flex-flow: column wrap;
-  align-content: flex-start;
+  align-content: center;
   align-items: center;
 }
