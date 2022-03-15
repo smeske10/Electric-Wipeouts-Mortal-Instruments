@@ -82,6 +82,7 @@ router.get("/product/:id", async (req, res) => {
 
     res.render("product", {
       product,
+      logged_in:req.session.logged_in,
     });
   } catch (err) {
     res.status(400).json(err);
