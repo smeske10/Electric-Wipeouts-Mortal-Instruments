@@ -1,7 +1,7 @@
 "use strict";
 const nodemailer = require("nodemailer");
 
-async function main() {
+const nodeMailer = async function () {
   let testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
@@ -28,6 +28,6 @@ async function main() {
 
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-}
+};
 
-main().catch(console.error);
+nodeMailer().catch(console.error);
