@@ -39,7 +39,6 @@ router.get("/cart", withAuth, async (req, res) => {
       ],
     });
     const user = userData.get({ plain: true });
-    console.log(user);
 
     const products = cartData.map((product) => product.get({ plain: true }));
     res.render("cart", {
