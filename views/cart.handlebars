@@ -12,7 +12,7 @@
   <div class="col-md-6">
       <p>img here</p>
     <h3>{{price}}</h3>
-     <button type="button" class="btn btn-primary">
+     <button id="deleteBtn" data-id="{{product.id}}" type="button" class="btn btn-primary">
           Remove from cart
       </button>
       <p>🗑</p>
@@ -28,4 +28,8 @@
       </button>
   </div>
 </div>
+
+{{#if products}}
+<script src="../js/deleteFromCart/deleteBtn.js"></script>
+{{/if}}
     
