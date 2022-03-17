@@ -34,21 +34,41 @@ router.delete("/delete/:id", async (req, res) => {
   let pId = req.params.id;
   let uId = req.session.user_id;
   try {
-    // const findCart = await Cart.findOne({ where: { user_id: uId, product_id: pId }});
-    // console.log(findCart)
-    const cart = await Cart.destroy({
-      where: {
-        user_id: uId,
-        product_id: pId,
-      },
-    });
-
-    if (!cart) {
-      res.status(404).json({ message: "No item found!" });
-      return;
+    const findCart = await Cart.findOne({ where: { user_id: uId, product_id: pId }});
+    console.log(findCart.quantity)
+    if(findCart.quantity>1){
+      let cartSub= await Cart.update(
+        {
+          quantity: Sequelize.literal(`quantity - 1`),
+        },
+        {
+          where: {
+            user_id: uId,
+            product_id: pId,
+          },
+        }
+      )
+      if (!cartSub) {
+        res.status(404).json({ message: "No item found!" });
+        return;
+      }
+      res.status(200).json(cartSub);
+      return
+    }else{
+      console.log("in delete else block")
+      const cart = await Cart.destroy({
+        where: {
+          user_id: uId,
+          product_id: pId,
+        },
+      })
+      if (!cart) {
+        res.status(404).json({ message: "No item found!" });
+        return;
+      }
+      res.status(200).json(cart);
+      return
     }
-
-    res.status(200).json(cart);
   } catch (err) {
     res.status(500).json(err);
   }
