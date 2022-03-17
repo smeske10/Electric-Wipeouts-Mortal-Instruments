@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Product, Category, User } = require("../models");
 const withAuth = require("../utils/auth");
+const nodeMail = require("nodemailer");
 
 //homepage products
 router.get("/", async (req, res) => {
@@ -55,22 +56,45 @@ router.get("/checkout", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Product }],
+    });
+    const cartData = await Product.findAll();
+
+    const user = userData.get({ plain: true });
+    console.log(user);
+
+    const products = cartData.map((product) => product.get({ plain: true }));
+    console.log(products);
+
+    res.render("check-out", {
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/confirm", async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
     });
     const cartData = await Product.findAll({
       include: [
         {
           model: User,
-          attributes: ["email"],
+          attributes: ["name", "email"],
         },
       ],
     });
+
     const user = userData.get({ plain: true });
-    console.log(user);
 
     const products = cartData.map((product) => product.get({ plain: true }));
-    res.render("check-out", {
-      products,
+    // nodeMail(user, products);
+
+    res.render("confirm", {
+      ...products,
       ...user,
       logged_in: true,
     });
