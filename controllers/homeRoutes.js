@@ -94,7 +94,7 @@ router.get("/confirm", async (req, res) => {
     // nodeMail(user, products);
 
     res.render("confirm", {
-      ...products,
+      products,
       ...user,
       logged_in: true,
     });
