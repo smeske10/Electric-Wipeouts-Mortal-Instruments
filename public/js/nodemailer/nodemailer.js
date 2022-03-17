@@ -27,7 +27,7 @@ async function nodeMail() {
 
   let message = {
     from: "Electric Wipeout <smeske10@gmail.com>",
-    to: User.email,
+    to: "<18klose@gmail.com>",
     subject: "Thank You for Ordering from Electric Wipeout" + Date.now(),
     text: "Hello! Thanks for ordering from Electric Wipeout Mortal instruments!",
     html: `<p><b>Hello!</b> Thanks for joining Electric Wipeout Mortal instruments! </p>`,
@@ -43,8 +43,9 @@ async function nodeMail() {
 
   console.log("Message sent: %s", send.messageId);
 
-  // Preview only available when sending through an Ethereal account
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(send));
 }
 
-module.exports = nodeMail;
+nodeMail();
+
+module.exports = nodeMail();
