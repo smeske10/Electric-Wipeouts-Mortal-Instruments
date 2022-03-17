@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-auto">
+        <h2> Welcome {{name}}! Your Order has been Confirmed! </h2>
+    </div>
+</div>
+<div>
+{{#each products as |product| }}
+    <div class="row align-center mb-5">
+  <div class="col-md-6">
+      <h2>{{name}}</h2>
+    </div>
+  <div class="col-md-6">
+    <h3>{{price}}</h3>
+</div>
+{{/each}}
+<div class="row mt-4">
+  <div class="col-md-6">
+      A confirmation email has been sent to {{email}}
+  </div>
+</div>
+    
