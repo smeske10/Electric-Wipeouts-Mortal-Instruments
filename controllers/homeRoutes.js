@@ -51,6 +51,34 @@ router.get("/cart", withAuth, async (req, res) => {
   }
 });
 
+router.get("/checkout", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Product }],
+    });
+    const cartData = await Product.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["email"],
+        },
+      ],
+    });
+    const user = userData.get({ plain: true });
+    console.log(user);
+
+    const products = cartData.map((product) => product.get({ plain: true }));
+    res.render("check-out", {
+      products,
+      ...user,
+      logged_in: true,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //sort by category
 router.get("/category/:id", async (req, res) => {
   try {
@@ -81,7 +109,7 @@ router.get("/product/:id", async (req, res) => {
 
     res.render("product", {
       product,
-      logged_in:req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(400).json(err);

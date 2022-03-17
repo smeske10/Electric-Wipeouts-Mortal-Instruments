@@ -1,5 +1,5 @@
-export default function sendToServer(data) {
-  return fetch("/checkout/", {
+function sendToServer(data) {
+  return fetch("/checkout", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -8,7 +8,7 @@ export default function sendToServer(data) {
     body: JSON.stringify(data),
   }).then((res) => {
     if (res.status !== 200) {
-      throw new Error(`Payment failure (id ${res.status})`);
+      throw error(`Payment failure (id ${res.status})`);
     }
     return true;
   });

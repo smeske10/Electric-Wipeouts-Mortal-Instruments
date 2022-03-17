@@ -1,28 +1,4 @@
-import sendToServer from "merchant-server";
-
-const SHIPPING_OPTIONS = {
-  us: [
-    {
-      id: "standard",
-      label: "Standard Shipping",
-      price: 0,
-    },
-    {
-      id: "express",
-      label: "Express Shipping",
-      price: 10,
-    },
-  ],
-  international: [
-    {
-      id: "international",
-      label: "International Shipping",
-      price: 15,
-    },
-  ],
-};
-
-export default class PaymentAPIWrapper {
+class PaymentAPIWrapper {
   checkout(cart) {
     let request = this.buildPaymentRequest(cart);
     let response;
@@ -35,9 +11,6 @@ export default class PaymentAPIWrapper {
         let data = r.toJSON();
         console.log(data);
         return data;
-      })
-      .then((data) => {
-        return sendToServer(data);
       })
       .then(() => {
         response.complete("success");
@@ -65,7 +38,18 @@ export default class PaymentAPIWrapper {
         },
       },
     ];
-
+    let shippingOptions = [
+      {
+        id: "standard",
+        label: "Standard Shipping",
+        price: 0,
+      },
+      {
+        id: "express",
+        label: "Express Shipping",
+        price: 10,
+      },
+    ];
     // Payment options
     const paymentOptions = {
       requestShipping: true,
@@ -74,8 +58,7 @@ export default class PaymentAPIWrapper {
       requestPayerName: true,
     };
 
-    let shippingOptions = [];
-    let selectedOption = null;
+    let selectedOption = [];
 
     let details = this.buildPaymentDetails(
       cart,
@@ -163,20 +146,6 @@ export default class PaymentAPIWrapper {
 
     return details;
   }
-
-  /*
-   * Utility function to extract the correct shipping options for a country.
-   */
-  optionsForCountry(country) {
-    country = country.toLowerCase();
-    if (!country || !SHIPPING_OPTIONS.hasOwnProperty(country)) {
-      country = "international";
-    }
-    let options = SHIPPING_OPTIONS[country];
-    // Sort by price, lowest first
-    options.sort((a, b) => {
-      return a.price - b.price;
-    });
-    return options;
-  }
 }
+
+module.exports = PaymentAPIWrapper;
