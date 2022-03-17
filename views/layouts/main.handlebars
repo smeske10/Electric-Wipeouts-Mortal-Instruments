@@ -23,9 +23,7 @@
       <a href="/">Home</a>
       <a href="/cart">Cart 🛒</a>
       {{#if logged_in}}
-        <button style="padding:unset;" class="btn" id="logout"><a
-            href=""
-          >logout</a></button>
+        <button style="padding:unset;" class="btn" id="logout"><a href="">logout</a></button>
       {{else}}
         <a href="/login">Login</a>
       {{/if}}
@@ -41,7 +39,6 @@
     {{#if logged_in}}
       <script src="./js/login/logout.js"></script>
     {{/if}}
-    <script src="../js/addToCart/cartBtn.js"></script>
   </body>
-
+  <script src="../js/addToCart/cartBtn.js"></script>
 </html>
