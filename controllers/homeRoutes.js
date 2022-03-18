@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Product, Category, User, Cart } = require("../models");
 const withAuth = require("../utils/auth");
+const nodeMail = require("../utils/nodemailer");
 
 //homepage products
 router.get("/", async (req, res) => {
@@ -93,10 +94,10 @@ router.get("/confirm", async (req, res) => {
     const user = userData.get({ plain: true });
 
     const products = cartData.map((product) => product.get({ plain: true }));
-    // nodeMail(user, products);
+    nodeMail(user, products);
 
     res.render("confirm", {
-      ...products,
+      products,
       ...user,
       logged_in: true,
     });

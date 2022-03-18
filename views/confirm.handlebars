@@ -2,20 +2,22 @@
     <div class="col-auto">
         <h2> Welcome {{name}}! Your Order has been Confirmed! </h2>
     </div>
+    <br><br>
 </div>
 <div>
-{{#each products as |product| }}
-    <div class="row align-center mb-5">
-  <div class="col-md-6">
-      <h2>{{name}}</h2>
-    </div>
-  <div class="col-md-6">
-    <h3>{{price}}</h3>
-</div>
-{{/each}}
 <div class="row mt-4">
-  <div class="col-md-6">
-      A confirmation email has been sent to {{email}}
+  <div class="col-auto text-center">
+      <h3>A confirmation email has been sent to {{email}}</h3>
   </div>
 </div>
-    
+<br><br>
+{{#each products as |product| }}
+<div class="row align-center mb-5">
+  <div class="col-md-3">
+    <p>$ {{price}}</p>
+</div>
+<div class="col-md-9">
+      <p>{{name}}</p>
+</div>
+</div>
+{{/each}}
