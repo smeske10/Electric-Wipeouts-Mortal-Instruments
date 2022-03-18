@@ -1,7 +1,6 @@
 const deleteBtn = document.querySelector('#deleteBtn')
 
 const deleteFromCart = async (event) => {
-    console.log('hello')
     if (event.target.hasAttribute('data-id')) {
         let prodId = event.target.getAttribute('data-id');
         console.log(prodId)
