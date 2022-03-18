@@ -2,23 +2,23 @@
   <div class="col-md-6">
     <h2>Checking out {{name}}</h2>
   </div>
-  <form class="row g-3">
+  <form class="was-validated row g-3">
     <div class="col-md-6">
-      <label for="inputEmail4" class="form-label">Name</label>
-      <input type="name" class="form-control" id="inputname" />
+      <label for="validationName" class="form-label">Name</label>
+      <input type="name" class="form-control is-invalid" id="validationName" required/>
     </div>
     <div class="col-md-6">
-      <label for="inputEmail4" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail" />
+      <label for="validationEmail" class="form-label">Email</label>
+      <input type="email" class="form-control is-invalid" id="validationEmail" required/>
     </div>
     <div class="col-12">
-      <label for="inputAddress" class="form-label">Address</label>
+      <label for="validationAddress" class="form-label">Address</label>
       <input
         type="text"
         class="form-control"
-        id="inputAddress"
+        id="validationAddress"
         placeholder="1234 Main St"
-      />
+      required/>
     </div>
     <div class="col-12">
       <label for="inputAddress2" class="form-label">Address 2</label>
@@ -30,45 +30,80 @@
       />
     </div>
     <div class="col-md-6">
-      <label for="inputCity" class="form-label">City</label>
-      <input type="text" class="form-control" id="inputCity" />
+      <label for="validationCity" class="form-label">City</label>
+      <input type="text" class="form-control" id="validationCity" required/>
     </div>
     <div class="col-md-4">
-      <label for="inputState" class="form-label">State</label>
-      <select id="inputState" class="form-select">
-        <option selected>Choose...</option>
-        <option>...</option>
+      <label for="validationState" class="form-label">State</label>
+      <select id="validationState" class="form-select is-invalid" required>
+        <option selected disabled value="">Choose...</option>
+        <option>Alabama</option>
+        <option>Alaska</option>
+        <option>Arizona</option>
+        <option>Arkansas</option>
+        <option>California</option>
+        <option>Colorado</option>
+        <option>Connecticut</option>
+        <option>Delaware</option>
+        <option>Florida</option>
+        <option>Georgia</option>
+        <option>Hawaii</option>
+        <option>New Jersey</option>
+        <option>New York</option>
+        <option>Ohio</option>
+        <option>Pennsylvania</option>
+        <option>Washington</option>
       </select>
     </div>
     <div class="col-md-2">
       <label for="inputZip" class="form-label">Zip</label>
-      <input type="text" class="form-control" id="inputZip" />
+      <input type="text" class="form-control" id="inputZip" required/>
     </div>
     <div class="col-md-2">
       <label for="inputZip" class="form-label">Shipping Method</label>
-      <select id="inputDate" class="form-select">
-        <option selected>Choose...</option>
+      <select id="inputDate" class="form-select" required>
+        <option selected disabled value="">Choose...</option>
         <option>Standard</option>
         <option>Express</option>
       </select>
     </div>
     <div class="col-md-6">
       <label for="inputNum" class="form-label">Credit card number</label>
-      <input type="text" class="form-control" id="cardNum" />
+      <input type="text" class="form-control" id="cardNum" required/>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
       <label for="inputDate" class="form-label">Expires</label>
-      <select id="inputDate" class="form-select">
-        <option selected>Choose...</option>
-        <option>...</option>
+      <select id="inputDate" class="form-select" required>
+        <option selected disabled value="">Month...</option>
+        <option>Jan</option>
+        <option>Feb</option>
+        <option>Mar</option>
+        <option>Apr</option>
+        <option>May</option>
+        <option>Jun</option>
+        <option>Jul</option>
+        <option>Aug</option>
+        <option>Sep</option>
+        <option>Oct</option>
+        <option>Nov</option>
+        <option>Dec</option>
+      </select>
+      <select id="inputDate" class="form-select" required>
+        <option selected disabled value="">Year...</option>
+        <option>22</option>
+        <option>23</option>
+        <option>24</option>
+        <option>25</option>
+        <option>26</option>
+        <option>27</option>
       </select>
     </div>
     <div class="col-md-2">
-      <label for="inputZip" class="form-label">Cvc code</label>
-      <input type="text" class="form-control" id="inputZip" />
+      <label for="inputZip" class="form-label">CVC Code</label>
+      <input type="text" class="form-control" id="inputZip"required />
     </div>
     <div class="col-12">
-      <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+      <button id="submit" type="submit" class="btn btn-primary" formnovalidate>Submit</button>
     </div>
   </form>
 </div>
