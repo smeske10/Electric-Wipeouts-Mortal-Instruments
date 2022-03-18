@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { response } = require("express");
 const { Sequelize } = require("sequelize");
-const { Cart } = require("../../models");
+const { Cart, Product } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async (req, res) => {
@@ -13,6 +13,16 @@ router.post("/", withAuth, async (req, res) => {
       user_id: u_id,
       product_id: p_id,
     });
+    await Product.update(
+      {
+        stock: Sequelize.literal(`stock - 1`),
+      },
+      {
+        where: {
+          id: p_id,
+        },
+      }
+    );
     res.status(201).json(newCart);
   } catch (err) {
     const updatedCart = await Cart.update(
@@ -23,6 +33,16 @@ router.post("/", withAuth, async (req, res) => {
         where: {
           user_id: u_id,
           product_id: p_id,
+        },
+      }
+    );
+    await Product.update(
+      {
+        stock: Sequelize.literal(`stock - 1`),
+      },
+      {
+        where: {
+          id: p_id,
         },
       }
     );
@@ -48,6 +68,16 @@ router.delete("/delete/:id", async (req, res) => {
           },
         }
       )
+      await Product.update(
+        {
+          stock: Sequelize.literal(`stock + 1`),
+        },
+        {
+          where: {
+            id: pId,
+          },
+        }
+      );
       if (!cartSub) {
         res.status(404).json({ message: "No item found!" });
         return;
@@ -62,6 +92,16 @@ router.delete("/delete/:id", async (req, res) => {
           product_id: pId,
         },
       })
+      await Product.update(
+        {
+          stock: Sequelize.literal(`stock + 1`),
+        },
+        {
+          where: {
+            id: pId,
+          },
+        }
+      );
       if (!cart) {
         res.status(404).json({ message: "No item found!" });
         return;

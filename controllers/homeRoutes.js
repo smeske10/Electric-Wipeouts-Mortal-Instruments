@@ -1,7 +1,6 @@
 const router = require("express").Router();
-const { Product, Category, User } = require("../models");
+const { Product, Category, User, Cart } = require("../models");
 const withAuth = require("../utils/auth");
-const nodeMail = require("nodemailer");
 
 //homepage products
 router.get("/", async (req, res) => {
@@ -29,7 +28,7 @@ router.get("/cart", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Product }],
+      include: [{ model: Product },]
     });
     const cartData = await Product.findAll({
       include: [
@@ -37,6 +36,9 @@ router.get("/cart", withAuth, async (req, res) => {
           model: User,
           attributes: ["name"],
         },
+        {model:Cart,
+        attributes:["quantity"]
+      },
       ],
     });
     const user = userData.get({ plain: true });

@@ -4,8 +4,10 @@
     <h3>{{product.name}}</h3>
     <p id="price">Price: ${{product.price}}</p>
     <p id="stock">Stock: {{product.stock}}</p>
+    {{#if (isEmpty product.stock)}}
     <button id="addBtn" data-id="{{product.id}}" class="btn btn-primary">
       Add to cart</button>
+      {{/if}}
     <br /><br />
     <div>
       <p>Product Description:</p>

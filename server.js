@@ -14,6 +14,14 @@ const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({ helpers });
 
+hbs.handlebars.registerHelper('isEmpty', function(stock){
+  if(stock>=1){
+    return true
+  }else{
+    return false
+  }
+})
+
 const sess = {
   secret: process.env.cookieSecret,
   cookie: {},
