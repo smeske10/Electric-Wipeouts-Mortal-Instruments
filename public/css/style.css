@@ -53,7 +53,7 @@ aside {
 nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: left;
   background-color: var(--secondary);
 }
 
@@ -62,11 +62,13 @@ nav a {
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
+  font-weight:600;
 }
 
 nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
+  text-decoration: none;
 }
 
 .category {
@@ -168,4 +170,8 @@ img {
   flex-flow: column wrap;
   align-content: center;
   align-items: center;
+}
+
+footer{
+  background-color: black;
 }

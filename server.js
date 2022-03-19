@@ -7,6 +7,7 @@ const helpers = require("./utils/helpers");
 require("dotenv").config();
 
 const sequelize = require("./config/connection");
+const { Cart } = require("./models");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
@@ -20,6 +21,10 @@ hbs.handlebars.registerHelper('isEmpty', function(stock){
   }else{
     return false
   }
+})
+
+hbs.handlebars.registerHelper('itemTotal', function(amount,price){
+  return amount*price
 })
 
 const sess = {
