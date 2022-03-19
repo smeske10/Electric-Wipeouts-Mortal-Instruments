@@ -1,15 +1,17 @@
-function sendToServer(data) {
-  return fetch("/checkout", {
+const sendToServer = async (body) => {
+  return fetch("/payment", {
     method: "POST",
     credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(data),
+    body: body,
   }).then((res) => {
     if (res.status !== 200) {
       throw error(`Payment failure (id ${res.status})`);
     }
     return true;
   });
-}
+};
+
+module.exports = sendToServer;

@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const { Product, Category, User, Cart } = require("../models");
+const { send } = require("express/lib/response");
+const { Product, Category, User, Cart, PaymentAPI } = require("../models");
+const { beforeDestroy } = require("../models/User");
+const sendToServer = require("../public/js/payment/merchant-server");
 const withAuth = require("../utils/auth");
 const nodeMail = require("../utils/nodemailer");
 
@@ -29,7 +32,7 @@ router.get("/cart", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include: [{ model: Product },]
+      include: [{ model: Product }],
     });
     const cartData = await Product.findAll({
       include: [
@@ -37,15 +40,13 @@ router.get("/cart", withAuth, async (req, res) => {
           model: User,
           attributes: ["name"],
         },
-        {model:Cart,
-        attributes:["quantity"]
-      },
+        { model: Cart, attributes: ["quantity"] },
       ],
     });
     const user = userData.get({ plain: true });
 
     const products = cartData.map((product) => product.get({ plain: true }));
-    console.log(products)
+    console.log(products);
     res.render("cart", {
       products,
       ...user,
@@ -64,10 +65,8 @@ router.get("/checkout", withAuth, async (req, res) => {
     const cartData = await Product.findAll();
 
     const user = userData.get({ plain: true });
-    console.log(user);
 
     const products = cartData.map((product) => product.get({ plain: true }));
-    console.log(products);
 
     res.render("check-out", {
       ...user,
@@ -82,7 +81,7 @@ router.get("/confirm", async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
-      include:[{model:Product}]
+      include: [{ model: Product }],
     });
     const cartData = await Product.findAll({
       include: [
@@ -97,11 +96,27 @@ router.get("/confirm", async (req, res) => {
 
     const products = cartData.map((product) => product.get({ plain: true }));
     nodeMail(user, products);
+
+    // send();
+    // sendToServer(body);
     res.render("confirm", {
       products,
       ...user,
       logged_in: true,
     });
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
+router.post("/payment", async (req, res) => {
+  try {
+    const paymentData = await PaymentAPI.create({
+      body,
+    });
+
+    res.status(200).json(paymentData);
   } catch (err) {
     res.status(500).json(err);
   }
