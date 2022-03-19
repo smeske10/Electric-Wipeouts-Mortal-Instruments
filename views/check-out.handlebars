@@ -5,11 +5,21 @@
   <form class="was-validated row g-3">
     <div class="col-md-6">
       <label for="validationName" class="form-label">Name</label>
-      <input type="name" class="form-control is-invalid" id="validationName" required/>
+      <input
+        type="name"
+        class="form-control is-invalid"
+        id="validationName"
+        required
+      />
     </div>
     <div class="col-md-6">
       <label for="validationEmail" class="form-label">Email</label>
-      <input type="email" class="form-control is-invalid" id="validationEmail" required/>
+      <input
+        type="email"
+        class="form-control is-invalid"
+        id="validationEmail"
+        required
+      />
     </div>
     <div class="col-12">
       <label for="validationAddress" class="form-label">Address</label>
@@ -18,7 +28,8 @@
         class="form-control"
         id="validationAddress"
         placeholder="1234 Main St"
-      required/>
+        required
+      />
     </div>
     <div class="col-12">
       <label for="inputAddress2" class="form-label">Address 2</label>
@@ -31,7 +42,7 @@
     </div>
     <div class="col-md-6">
       <label for="validationCity" class="form-label">City</label>
-      <input type="text" class="form-control" id="validationCity" required/>
+      <input type="text" class="form-control" id="validationCity" required />
     </div>
     <div class="col-md-4">
       <label for="validationState" class="form-label">State</label>
@@ -57,11 +68,11 @@
     </div>
     <div class="col-md-2">
       <label for="inputZip" class="form-label">Zip</label>
-      <input type="text" class="form-control" id="inputZip" required/>
+      <input type="text" class="form-control" id="inputZip" required />
     </div>
     <div class="col-md-2">
-      <label for="inputZip" class="form-label">Shipping Method</label>
-      <select id="inputDate" class="form-select" required>
+      <label for="inputShip" class="form-label">Shipping Method</label>
+      <select id="inputShip" class="form-select" required>
         <option selected disabled value="">Choose...</option>
         <option>Standard</option>
         <option>Express</option>
@@ -69,7 +80,7 @@
     </div>
     <div class="col-md-6">
       <label for="inputNum" class="form-label">Credit card number</label>
-      <input type="text" class="form-control" id="cardNum" required/>
+      <input type="text" class="form-control" id="cardNum" required />
     </div>
     <div class="col-md-2">
       <label for="inputDate" class="form-label">Expires</label>
@@ -88,7 +99,7 @@
         <option>Nov</option>
         <option>Dec</option>
       </select>
-      <select id="inputDate" class="form-select" required>
+      <select id="inputYear" class="form-select" required>
         <option selected disabled value="">Year...</option>
         <option>22</option>
         <option>23</option>
@@ -99,11 +110,16 @@
       </select>
     </div>
     <div class="col-md-2">
-      <label for="inputZip" class="form-label">CVC Code</label>
-      <input type="text" class="form-control" id="inputZip"required />
+      <label for="inputCvc" class="form-label">CVC Code</label>
+      <input type="text" class="form-control" id="inputCvc" required />
     </div>
     <div class="col-12">
-      <button id="submit" type="submit" class="btn btn-primary" formnovalidate>Submit</button>
+      <button
+        id="submit"
+        type="submit"
+        class="btn btn-primary"
+        formnovalidate
+      >Submit</button>
     </div>
   </form>
 </div>

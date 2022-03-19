@@ -2,7 +2,7 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-async function nodeMail(user, products) {
+function nodeMail(user, products) {
   let transport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -17,13 +17,37 @@ async function nodeMail(user, products) {
     },
   });
 
-  setTimeout(() => {
-    let message = {
-      from: "electricwipeout@gmail.com",
-      to: "18bklose.stem@gmail.com",
-      subject: "Thank You for Ordering from Electric Wipeout",
-      html: `
-  <html lang="en">
+  let attachmentsArr = [];
+
+  function body(user, products) {
+    let addedhtml = "";
+
+    for (let i = 0; i < user.products.length; i++) {
+      let attach = {};
+      attach.filename = user.products[i].name;
+      attach.path = user.products[i].image;
+      attach.cid = user.products[i].name;
+      attachmentsArr.push(attach);
+
+      addedhtml += `<div class="row align-center mb-5">
+      <div class="col-md-9">
+        <img src="cid:${attach.cid}">
+        <p> ${user.products[i].name}</p>
+      </div>
+      <div class="col-md-3">
+        <p>$ ${user.products[i].price}</p>
+      </div>    </div>`;
+    }
+    console.log(attachmentsArr);
+    return addedhtml;
+  }
+
+  let message = {
+    from: "electricwipeout@gmail.com",
+    to: `${user.email}`,
+    subject: "Thank You for Ordering from Electric Wipeout",
+    attachments: { ...attachmentsArr },
+    html: `<html lang="en">
 
   <head>
     <meta charset="utf-8" />
@@ -47,55 +71,41 @@ async function nodeMail(user, products) {
     <main class="container container-fluid mt-5">
     <div class="row">
     <div class="col-auto">
-        <h2> Welcome {{name}}! Your Order has been Confirmed! </h2>
+        <h2> Welcome ${user.name}! Your Order has been Confirmed! </h2>
     </div>
     <br><br>
     </div>
     <div>
     <div class="row mt-4">
       <div class="col-auto text-center">
-          <h3>A confirmation email has been sent to {{email}}</h3>
+          <h3>A confirmation email has been sent to ${user.email}</h3>
       </div>
     </div>
     <br><br>
-    {{#each products as |product| }}
-    <div class="row align-center mb-5">
-      <div class="col-md-3">
-        <p>$ {{price}}</p>
-    </div>
-    <div class="col-md-9">
-          <p>{{name}}</p>
-    </div>
-    </div>
-    {{/each}}
+    ${body(user, products)}
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
-    {{#if logged_in}}
-      <script src="../js/login/logout.js"></script>
-    {{/if}}
   </body>
   <script src="../js/addToCart/cartBtn.js"></script>
   <script src="../js/payment/checkoutBtn.js"></script>
   <script src="../js/payment/submitBtn.js"></script>
   </html>`,
-    };
-    try {
-      transport.sendMail(message, (error, info) => {
-        if (error) {
-          console.log("Error occurred");
-          console.log(error);
-          return process.exit(1);
-        }
-      });
-    } catch (err) {
-      console.log(err);
-      console.log("send");
-    }
-  }, 1000);
+  };
+
+  try {
+    transport.sendMail(message, (error, info) => {
+      if (error) {
+        console.log(error);
+        return process.exit(1);
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 module.exports = nodeMail;
