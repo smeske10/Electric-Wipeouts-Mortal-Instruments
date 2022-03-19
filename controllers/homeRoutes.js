@@ -45,6 +45,7 @@ router.get("/cart", withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
 
     const products = cartData.map((product) => product.get({ plain: true }));
+    console.log(products)
     res.render("cart", {
       products,
       ...user,
@@ -81,6 +82,7 @@ router.get("/confirm", async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
+      include:[{model:Product}]
     });
     const cartData = await Product.findAll({
       include: [
@@ -95,7 +97,6 @@ router.get("/confirm", async (req, res) => {
 
     const products = cartData.map((product) => product.get({ plain: true }));
     nodeMail(user, products);
-
     res.render("confirm", {
       products,
       ...user,
