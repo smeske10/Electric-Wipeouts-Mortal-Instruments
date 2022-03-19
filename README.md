@@ -1,9 +1,7 @@
 # Project 2: Electric Wipeout's Mortal Instruments
 
 ## Description
-- 
-- https://docs.google.com/document/d/1Uy9UNC5UKwm13iu4X9kpRuR0n14ZSBCoSG0V9dTo7jY/edit
-- 
+- This application offers the perfect example of an E-commerce program for a music store. Functionalities of this site enable users to browse through various music categories and products, view individual products, add them to their a cart and checkout. 
 
 ## Table of Contents
 
@@ -26,25 +24,31 @@ Refer to [https://choosealicense.com/](https://choosealicense.com/).
 ## Installation
 
 To install this application, please follow the steps below:
-- Run `mysql -u root -p` to `source db/schema.sql`. Then run `npm i` and `npm run seed` to seed data to the database to test the routes.
+1. copy or clone this repo to your terminal and open in VSC
+2. Run `mysql -u root -p` to `source db/schema.sql`
+3. Run `npm i` or `npm install` 
+4. Seed the data by running `node seeds/seed.js`
+5. Start the terminal in the server.js file. And run `node server.js`
+6. Open your default browser and enter `localhost://3001` into the search engine.
 
 - EXTENSIONS:
-    - api/categories/:id
+    - api/cart/:id
     - api/products/:id
-    - api/tags/:id
+    - api/users/:id
 
 ## Usage
-
-- Video: https://youtu.be/xK3P8_99vbQ
+- This applications follows the model views controllers structure. Using handlebars, Mysql, javascript, routes, and more this website allows users to easily shop and buy online. 
+- Refer to the following pictures and linked documentation for visuals and more details! 
+- Demo: 
 - GitHub: https://github.com/smeske10/Project-2--Electric-Wipeout
+- Heroku: https://mortal-instruments-music-shop.herokuapp.com/
 
-## Features
 
-- Get all Category, Product, and Tag models 
-- Get Category, Product, and Tag models by ID
-- Create new Category, Product, and Tag models (body: JSON)
-- Update Category, Product, and Tag models by ID (body: JSON)
-- Delete Category, Product, and Tag models by ID
+![alt text](public/pics/home.png)
+![alt text](public/pics/categories.png)
+![alt text](public/pics/product.png)
+![alt text](public/pics/cart.png)
+![alt text](public/pics/confirm.png)
 
 ## Credits
 
@@ -59,4 +63,5 @@ If you have any questions about the repo, open an issue or contact me directly a
 - Contact me directly at my GitHub
 
 The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+
 
