@@ -39,7 +39,7 @@ To install this application, please follow the steps below:
 ## Usage
 - This applications follows the model views controllers structure. Using handlebars, Mysql, javascript, routes, and more this website allows users to easily shop and buy online. 
 - Refer to the following pictures and linked documentation for visuals and more details! 
-- Demo: 
+- Demo: https://drive.google.com/file/d/1-b81PPyYvQPCJ34VcPLnYUScBp4hm4_9/view
 - GitHub: https://github.com/smeske10/Project-2--Electric-Wipeout
 - Heroku: https://mortal-instruments-music-shop.herokuapp.com/
 
