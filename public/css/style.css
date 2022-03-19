@@ -169,7 +169,6 @@ img {
   display: flex;
   flex-flow: column wrap;
   align-content: center;
-  align-items: center;
 }
 
 footer{
